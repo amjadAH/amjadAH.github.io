@@ -1053,8 +1053,8 @@ a {
   color: #8e8d8a;
 }
 .cid-sFF3eJNZDT {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
   background-color: #ffffff;
 }
 .cid-sFF3eJNZDT .item {
@@ -1132,4 +1132,7 @@ a {
 }
 .cid-sFF3qL4anb H1 {
   color: #22a5e5;
+}
+.cid-sFF3qL4anb P {
+  color: #ffb18a;
 }
