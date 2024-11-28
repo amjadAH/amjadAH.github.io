@@ -20,7 +20,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
 }
 
 body {
@@ -217,18 +216,6 @@ body::after {
     opacity: 0.03;
     z-index: -1;
     pointer-events: none;
-}
-
-.cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent-color);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 999;
-    transition: all 0.1s ease;
-    transition-property: width, height, border;
 }
 
 .container {
