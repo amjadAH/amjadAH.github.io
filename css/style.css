@@ -1,7 +1,7 @@
 :root {
     --bg-color: #0a0a0a;
     --text-color: #ffffff;
-    --accent-color: #64ffda;
+    --accent-color: #00a6ff;
     --secondary-color: #8892b0;
     --card-bg: #1a1a1a;
 }
@@ -9,7 +9,7 @@
 :root[data-theme="light"] {
     --bg-color: #ffffff;
     --text-color: #0a0a0a;
-    --accent-color: #0a9b7a;
+    --accent-color: #0077ff;
     --secondary-color: #4a5568;
     --card-bg: #f3f4f6;
 }
@@ -29,6 +29,183 @@ body {
     overflow-x: hidden;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(0, 166, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 166, 255, 0.03) 0%, transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(0, 166, 255, 0.03) 0%, transparent 30%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 166, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0, 119, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(0, 225, 255, 0.05) 0%, transparent 60%);
+    animation: gradientShift 20s ease-in-out infinite;
+}
+
+.background-animation::before,
+.background-animation::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--accent-color);
+    opacity: 0.03;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: orbFloat 25s ease-in-out infinite;
+}
+
+.background-animation::before {
+    top: 10%;
+    left: 20%;
+    background: linear-gradient(45deg, var(--accent-color), #00f7ff);
+}
+
+.background-animation::after {
+    bottom: 10%;
+    right: 20%;
+    background: linear-gradient(-45deg, var(--accent-color), #0077ff);
+    animation-delay: -12.5s;
+}
+
+/* Add matrix-style elements */
+.background-animation span {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+    opacity: 0;
+    animation: matrixDrop 8s linear infinite;
+}
+
+.background-animation span:nth-child(1) {
+    left: 20%;
+    animation-delay: -2s;
+}
+
+.background-animation span:nth-child(2) {
+    left: 80%;
+    animation-delay: -6s;
+}
+
+@keyframes matrixDrop {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes orbFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.02;
+    }
+    25% {
+        transform: translate(150px, -50px) scale(1.2);
+        opacity: 0.04;
+    }
+    50% {
+        transform: translate(100px, 100px) scale(1);
+        opacity: 0.02;
+    }
+    75% {
+        transform: translate(-50px, 50px) scale(1.2);
+        opacity: 0.04;
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+}
+
+/* Update grid animation */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(var(--accent-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--accent-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+    animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% {
+        opacity: 0.02;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.04;
+        transform: scale(1.02);
+    }
+}
+
+:root[data-theme="dark"] body {
+    background: linear-gradient(to bottom right, #0a0a0a, #1a1a1a);
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(var(--accent-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--accent-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+}
+
 .cursor {
     width: 20px;
     height: 20px;
@@ -45,58 +222,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    margin-bottom: 2rem;
-    position: relative;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid var(--accent-color);
-    border-radius: 12px;
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-}
-
-.logo::before {
-    content: 'A';
-    transform: rotate(-45deg);
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 8px rgba(100, 255, 218, 0.2);
-}
-
-.logo:hover {
-    transform: rotate(45deg) scale(1.1);
-    box-shadow: 0 0 20px rgba(var(--accent-color), 0.3);
-}
-
-@keyframes logoAppear {
-    0% {
-        opacity: 0;
-        transform: rotate(45deg) scale(0.5);
-    }
-    100% {
-        opacity: 1;
-        transform: rotate(45deg) scale(1);
-    }
-}
-
-.logo {
-    animation: logoAppear 0.6s ease-out forwards;
 }
 
 header {
@@ -503,7 +628,7 @@ header {
 }
 
 .submit-btn {
-    background: linear-gradient(45deg, #007bff, #00bfff);
+    background: linear-gradient(45deg, #0077ff, #00a6ff);
     color: white;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -518,7 +643,7 @@ header {
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 166, 255, 0.3);
 }
 
 .submit-btn:active {
@@ -534,4 +659,95 @@ header {
 
 [data-theme="dark"] .contact-form {
     background: rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(0, 166, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 166, 255, 0.3);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .avatar {
+    filter: brightness(1.1) contrast(1.1);
+}
+
+/* Add scanline effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+    animation: scanline 10s linear infinite;
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100px);
+    }
+}
+
+/* Add glowing effect to the grid */
+body::after {
+    animation: 
+        gridMove 20s linear infinite,
+        gridGlow 5s ease-in-out infinite;
+}
+
+@keyframes gridGlow {
+    0%, 100% {
+        opacity: 0.03;
+    }
+    50% {
+        opacity: 0.05;
+    }
+}
+
+/* Update the background gradients */
+.background-animation {
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 166, 255, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0, 119, 255, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(0, 225, 255, 0.03) 0%, transparent 60%);
+    animation: gradientShift 15s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
 } 
