@@ -88,26 +88,36 @@ body::before {
     animation-delay: -12.5s;
 }
 
-/* Add matrix-style elements */
+/* Update matrix-style elements */
 .background-animation span {
     position: absolute;
-    width: 2px;
-    height: 2px;
     background: var(--accent-color);
     box-shadow: 0 0 8px var(--accent-color);
     opacity: 0;
-    animation: matrixDrop 8s linear infinite;
+    animation: matrixDrop linear infinite;
 }
 
-.background-animation span:nth-child(1) {
-    left: 20%;
-    animation-delay: -2s;
-}
-
-.background-animation span:nth-child(2) {
-    left: 80%;
-    animation-delay: -6s;
-}
+/* Varying sizes and speeds for different spans */
+.background-animation span:nth-child(1) { left: 5%; width: 1px; height: 1px; animation-duration: 6s; animation-delay: -2s; }
+.background-animation span:nth-child(2) { left: 15%; width: 2px; height: 2px; animation-duration: 8s; animation-delay: -4s; }
+.background-animation span:nth-child(3) { left: 25%; width: 1px; height: 1px; animation-duration: 7s; animation-delay: -6s; }
+.background-animation span:nth-child(4) { left: 35%; width: 3px; height: 3px; animation-duration: 9s; animation-delay: -8s; }
+.background-animation span:nth-child(5) { left: 45%; width: 1px; height: 1px; animation-duration: 6s; animation-delay: -10s; }
+.background-animation span:nth-child(6) { left: 55%; width: 2px; height: 2px; animation-duration: 8s; animation-delay: -3s; }
+.background-animation span:nth-child(7) { left: 65%; width: 1px; height: 1px; animation-duration: 7s; animation-delay: -5s; }
+.background-animation span:nth-child(8) { left: 75%; width: 2px; height: 2px; animation-duration: 9s; animation-delay: -7s; }
+.background-animation span:nth-child(9) { left: 85%; width: 1px; height: 1px; animation-duration: 6s; animation-delay: -9s; }
+.background-animation span:nth-child(10) { left: 95%; width: 3px; height: 3px; animation-duration: 8s; animation-delay: -1s; }
+.background-animation span:nth-child(11) { left: 10%; width: 2px; height: 2px; animation-duration: 7s; animation-delay: -2.5s; }
+.background-animation span:nth-child(12) { left: 20%; width: 1px; height: 1px; animation-duration: 9s; animation-delay: -4.5s; }
+.background-animation span:nth-child(13) { left: 30%; width: 2px; height: 2px; animation-duration: 6s; animation-delay: -6.5s; }
+.background-animation span:nth-child(14) { left: 40%; width: 1px; height: 1px; animation-duration: 8s; animation-delay: -8.5s; }
+.background-animation span:nth-child(15) { left: 50%; width: 3px; height: 3px; animation-duration: 7s; animation-delay: -1.5s; }
+.background-animation span:nth-child(16) { left: 60%; width: 1px; height: 1px; animation-duration: 9s; animation-delay: -3.5s; }
+.background-animation span:nth-child(17) { left: 70%; width: 2px; height: 2px; animation-duration: 6s; animation-delay: -5.5s; }
+.background-animation span:nth-child(18) { left: 80%; width: 1px; height: 1px; animation-duration: 8s; animation-delay: -7.5s; }
+.background-animation span:nth-child(19) { left: 90%; width: 2px; height: 2px; animation-duration: 7s; animation-delay: -9.5s; }
+.background-animation span:nth-child(20) { left: 100%; width: 1px; height: 1px; animation-duration: 9s; animation-delay: -0.5s; }
 
 @keyframes matrixDrop {
     0% {
