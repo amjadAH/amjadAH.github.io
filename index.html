@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amjad AH</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Chakra+Petch:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
 </head>
 <body>
     <div class="background-animation"></div>
@@ -38,78 +42,137 @@
     </button>
     <div class="container">
         <header>
-            <div class="profile-image">
-                <img src="images/profile.jpeg" alt="Amjad AH" class="avatar">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-button close"></span>
+                        <span class="terminal-button minimize"></span>
+                        <span class="terminal-button maximize"></span>
+                    </div>
+                    <div class="terminal-title">amjad@dev ~ </div>
+                </div>
+                <div class="terminal-content">
+                    <div class="line">
+                        <span class="prompt">amjad@dev:~$</span>
+                        <span class="command">whoami</span>
+                    </div>
+                    <div class="line">
+                        <span class="output">amjad</span>
+                    </div>
+                    <div class="line">
+                        <span class="prompt">amjad@dev:~$</span>
+                        <span class="command">echo $TITLE</span>
+                    </div>
+                    <div class="line">
+                        <span class="output">SOFTWARE_DEVELOPER</span>
+                    </div>
+                    <div class="line">
+                        <span class="prompt">amjad@dev:~$</span>
+                        <span class="command">cat ~/about.txt</span>
+                    </div>
+                    <div class="line">
+                        <span class="output">Backend engineering wizard crafting robust digital solutions. When I'm not architecting systems or debugging code, you'll find me exploring virtual worlds through gaming or getting lost in the pages of a good book. 🚀</span>
+                    </div>
+                    <div class="line">
+                        <span class="prompt">amjad@dev:~$</span>
+                        <span class="command">ls -la ~/social-links/</span>
+                    </div>
+                    <div class="line">
+                        <span class="output">total 5</span>
+                    </div>
+                    <div class="line">
+                        <span class="output">-rwxr-xr-x  1 amjad dev   160 Feb 10 12:00 <a href="https://github.com/amjadAH" target="_blank" class="hover-effect"><i class="fab fa-github"></i> .github</a></span>
+                    </div>
+                    <div class="line">
+                        <span class="output">-rwxr-xr-x  1 amjad dev   160 Feb 10 12:00 <a href="https://linkedin.com/in/amjad-ah" target="_blank" class="hover-effect"><i class="fab fa-linkedin"></i> .linkedin</a></span>
+                    </div>
+                    <div class="line">
+                        <span class="output">-rwxr-xr-x  1 amjad dev   160 Feb 10 12:00 <a href="https://x.com/amjad_ah_" target="_blank" class="hover-effect"><i class="fab fa-x-twitter"></i> .x</a></span>
+                    </div>
+                    <div class="line">
+                        <span class="output">-rwxr-xr-x  1 amjad dev   160 Feb 10 12:00 <a href="https://www.goodreads.com/amjad-ah" target="_blank" class="hover-effect"><i class="fab fa-goodreads"></i> .goodreads</a></span>
+                    </div>
+                    <div class="line">
+                        <span class="output">-rwxr-xr-x  1 amjad dev   160 Feb 10 12:00 <a href="mailto:amd.abdulhameed@gmail.com" class="hover-effect"><i class="fas fa-envelope"></i> .email</a></span>
+                    </div>
+                    <div class="line">
+                        <span class="prompt">amjad@dev:~$</span>
+                        <span class="command blink">_</span>
+                    </div>
+                </div>
             </div>
-            <h1 class="glitch" data-text="Amjad AH">Amjad AH</h1>
-            <p class="subtitle">Software Developer</p>
         </header>
-
-        <section class="social-links">
-            <a href="https://github.com/amjadAH" target="_blank" class="hover-effect">
-                <i class="fab fa-github"></i>
-                <span class="tooltip">GitHub</span>
-            </a>
-            <a href="https://linkedin.com/in/amjad-ah" target="_blank" class="hover-effect">
-                <i class="fab fa-linkedin"></i>
-                <span class="tooltip">LinkedIn</span>
-            </a>
-            <a href="https://x.com/amjad_ah_" target="_blank" class="hover-effect">
-                <i class="fab fa-x-twitter"></i>
-                <span class="tooltip">X</span>
-            </a>
-            <a href="https://www.goodreads.com/amjad-ah" target="_blank" class="hover-effect">
-                <i class="fab fa-goodreads"></i>
-                <span class="tooltip">Goodreads</span>
-            </a>
-            <a href="mailto:amd.abdulhameed@gmail.com" class="hover-effect">
-                <i class="fas fa-envelope"></i>
-                <span class="tooltip">Email</span>
-            </a>
-        </section>
-
-        <section class="about reveal">
-            <p>Backend engineering wizard crafting robust digital solutions. When I'm not architecting systems or debugging code, 
-               you'll find me exploring virtual worlds through gaming or getting lost in the pages of a good book. 🚀</p>
-        </section>
 
         <section class="skills reveal">
             <h2 class="section-title">Tech Stack</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="skill-tags">
-                        <span>PHP</span>
-                        <span>Laravel</span>
-                        <span>Node.js</span>
-                        <span>Golang</span>
-                        <span>Python</span>
-                    </div>
+            <div class="tech-icons-grid">
+                <!-- Backend -->
+                <div class="tech-icon">
+                    <i class="fab fa-php"></i>
+                    <span>PHP</span>
                 </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <span>MySQL</span>
-                        <span>PostgreSQL</span>
-                        <span>MongoDB</span>
-                        <span>Redis</span>
-                        <span>SnowflakeDB</span>
-                    </div>
+                <div class="tech-icon">
+                    <i class="fab fa-laravel"></i>
+                    <span>Laravel</span>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools & DevOps</h3>
-                    <div class="skill-tags">
-                        <span>Git</span>
-                        <span>Docker</span>
-                        <span>AWS</span>
-                    </div>
+                <div class="tech-icon">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-node-js"></i>
+                    <span>NodeJS</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-golang"></i>
+                    <span>Golang</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+
+                <!-- Databases -->
+                <div class="tech-icon">
+                    <i class="fas fa-database"></i>
+                    <span>MySQL</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-database"></i>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-leaf"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-cube"></i>
+                    <span>Redis</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="far fa-snowflake"></i>
+                    <span>SnowflakeDB</span>
+                </div>
+
+                <!-- Tools & DevOps -->
+                <div class="tech-icon">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-docker"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS</span>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2 class="section-title">Contact Us</h2>
+                <h2 class="section-title">Contact Me</h2>
                 <div class="contact-form">
                     <form id="contactForm" action="https://formspree.io/f/mwkyyakn" method="POST">
                         <div class="form-group">
@@ -133,6 +196,9 @@
             </div>
         </section>
     </div>
+    <button id="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <script src="js/main.js"></script>
 </body>
 </html>
