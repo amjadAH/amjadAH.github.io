@@ -38,12 +38,30 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        radial-gradient(circle at 50% 50%, rgba(0, 166, 255, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(0, 166, 255, 0.03) 0%, transparent 30%),
-        radial-gradient(circle at 20% 80%, rgba(0, 166, 255, 0.03) 0%, transparent 30%);
-    z-index: -1;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
     pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+    animation: scanline 10s linear infinite;
+}
+
+[data-theme="light"] body::before {
+    opacity: 0;
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100px);
+    }
 }
 
 .background-animation {
@@ -784,6 +802,10 @@ body::before {
     animation: scanline 10s linear infinite;
 }
 
+[data-theme="light"] body::before {
+    opacity: 0;
+}
+
 @keyframes scanline {
     0% {
         transform: translateY(0);
@@ -865,6 +887,12 @@ body::after {
     max-width: 800px;
     font-family: 'Share Tech Mono', monospace;
     border: 1px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .terminal {
+    background: rgba(245, 245, 245, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .terminal-header {
@@ -876,10 +904,19 @@ body::after {
     border-bottom: 1px solid rgba(var(--accent-color), 0.2);
 }
 
+.terminal-title {
+    color: var(--text-color);
+}
+
 .terminal-content {
     padding: 1.5rem;
     font-size: 1rem;
     line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .terminal-content {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .line {
@@ -896,8 +933,16 @@ body::after {
     margin-right: 0.5rem;
 }
 
+[data-theme="light"] .prompt {
+    color: #008800;
+}
+
 .command {
     color: #ffffff;
+}
+
+[data-theme="light"] .command {
+    color: #000000;
 }
 
 .command.blink {
@@ -911,14 +956,8 @@ body::after {
     margin-top: 0.2rem;
 }
 
-.output a {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.output a:hover {
-    color: var(--accent-color);
+[data-theme="light"] .output {
+    color: #222222;
 }
 
 .output a i {
@@ -928,6 +967,38 @@ body::after {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+[data-theme="light"] .output a {
+    color: #444444;
+}
+
+[data-theme="light"] .output a:hover {
+    color: var(--accent-color);
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 1rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button.close {
+    background: #ff5f56;
+}
+
+.terminal-button.minimize {
+    background: #ffbd2e;
+}
+
+.terminal-button.maximize {
+    background: #27c93f;
 }
 
 /* Update hover effect for terminal links */
@@ -1018,5 +1089,23 @@ body::after {
     .tech-icon span {
         font-size: 0.8rem;
     }
+}
+
+.output a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.output a:hover {
+    color: var(--accent-color);
+}
+
+[data-theme="light"] .output a {
+    color: #444444;
+}
+
+[data-theme="light"] .output a:hover {
+    color: var(--accent-color);
 }
  
