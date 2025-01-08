@@ -32,7 +32,7 @@ reveals.forEach((element) => revealObserver.observe(element));
 // Theme switcher with localStorage
 const themeSwitch = document.querySelector(".theme-switch");
 const root = document.documentElement;
-const savedTheme = localStorage.getItem("theme") || "dark";
+const savedTheme = localStorage.getItem("theme") || "light";
 root.setAttribute("data-theme", savedTheme);
 
 themeSwitch.addEventListener("click", () => {
