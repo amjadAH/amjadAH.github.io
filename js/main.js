@@ -54,49 +54,56 @@ themeSwitch.addEventListener("click", () => {
   });
 });
 
-// Scroll to top with throttling
-const scrollTopBtn = document.getElementById("scroll-top");
-let isScrolling = false;
 
-window.addEventListener("scroll", () => {
-  if (!isScrolling) {
-    requestAnimationFrame(() => {
-      if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add("visible");
+// Contact Form Handler
+const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm && submitBtn) {
+  submitBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    // Validate form
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    // Show loading state
+    submitBtn.classList.add("loading");
+    formStatus.textContent = "";
+    formStatus.classList.remove("success", "error");
+
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        // Success
+        formStatus.textContent = "message sent successfully!";
+        formStatus.classList.add("success");
+        contactForm.reset();
       } else {
-        scrollTopBtn.classList.remove("visible");
+        // Error from server
+        const result = await response.json();
+        throw new Error(
+          result.error || "something went wrong. please try again."
+        );
       }
-      isScrolling = false;
-    });
-    isScrolling = true;
-  }
-});
-
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+    } catch (error) {
+      // Handle error
+      formStatus.textContent = error.message;
+      formStatus.classList.add("error");
+    } finally {
+      // Remove loading state
+      submitBtn.classList.remove("loading");
+    }
   });
-});
-
-// Profile image tilt effect
-const profileImage = document.querySelector(".profile-image");
-
-profileImage.addEventListener("mousemove", (e) => {
-  const rect = profileImage.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-
-  const rotateX = (y - centerY) / 10;
-  const rotateY = (centerX - x) / 10;
-
-  profileImage.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-});
-
-profileImage.addEventListener("mouseleave", () => {
-  profileImage.style.transform =
-    "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
-});
+}
